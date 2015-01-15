@@ -8,10 +8,20 @@
 
 
 ## Installation
+### Mac OS X / Homebrew
 ```shellsession
 $ brew tap 844196/Renge
 $ brew install Renge
 ```
+
+### Debian / apt-get
+```shellsession
+$ sudo apt-add-repository "deb http://ssiserver.moe.hm/debian ./"
+$ sudo apt-get update
+$ sudo apt-get install renge
+```
+
+**Thank you, [sasairc](https://github.com/sasairc)!!!!!!!!!!!!!**
 
 
 ## Usage
