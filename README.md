@@ -7,6 +7,13 @@
 ![](http://41.media.tumblr.com/301c9039563ff9a55d2d74bf6dd40dad/tumblr_ni86o499wX1s7qf9xo1_1280.png)
 
 
+## Installation
+```shellsession
+$ brew tap 844196/Renge
+$ brew install Renge
+```
+
+
 ## Usage
 ### Basic usage
 ```shellsession
