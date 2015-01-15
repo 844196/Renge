@@ -17,16 +17,16 @@ $ brew install Renge
 ## Usage
 ### Basic usage
 ```shellsession
-$ fortunerenge
+$ renge
 あぁうちはなぁ... なかあて！なかあてが熱いと思いますが！
 
-$ fortunerenge
+$ renge
 終始、司会者のうしろの窓の外で、ラジオ体操をしてるおじさんがいたのん
 ```
 
 ### Additional usage
 ```shellsession
-$ fortunerenge | cowsay
+$ renge | cowsay
  ________________________________
 < 名前もつけましたけど >
  --------------------------------

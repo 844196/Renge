@@ -8,47 +8,47 @@ fi
 
 
 # test
-function testFortunerengePrintUsage() {
+function testRengePrintUsage() {
     # short option
-    ./fortunerenge -h
+    ./renge -h
     assertEquals 0 $?
 
     # long option
-    ./fortunerenge --help
+    ./renge --help
     assertEquals 0 $?
 }
 
-function testFortunerengePrintVersion() {
+function testRengePrintVersion() {
     # short option
-    ./fortunerenge -v
+    ./renge -v
     assertEquals 0 $?
 
     # long option
-    ./fortunerenge --version
+    ./renge --version
     assertEquals 0 $?
 }
 
-function testFortunerengeIllegalOption() {
+function testRengeIllegalOption() {
     # short option
-    ./fortunerenge -f
+    ./renge -f
     assertEquals 255 $?
 
     # long option
-    ./fortunerenge --foobar
+    ./renge --foobar
     assertEquals 255 $?
 }
 
-function testFortunerengeTrueExit() {
-    local rtn="$(./fortunerenge)"
+function testRengeTrueExit() {
+    local rtn="$(./renge)"
     assertNotNull "${rtn}"
     assertEquals 0 $?
 }
 
-function testFortunerengeFalseExit() {
+function testRengeFalseExit() {
     # before
     mv ./renge-quotes ./no-renge-quotes
 
-    ./fortunerenge
+    ./renge
     assertEquals 2 $?
 
     # after
