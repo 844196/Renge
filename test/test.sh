@@ -8,51 +8,59 @@ fi
 
 
 # test
+function testMake() {
+    make install PREFIX='.'
+    assertEquals 0 $?
+
+    [[ -x "./bin/renge" ]]
+    assertEquals 0 $?
+
+    [[ -e "./share/renge/renge-quotes" ]]
+    assertEquals 0 $?
+}
+
 function testRengePrintUsage() {
     # short option
-    ./renge -h
+    ./bin/renge -h
     assertEquals 0 $?
 
     # long option
-    ./renge --help
+    ./bin/renge --help
     assertEquals 0 $?
 }
 
 function testRengePrintVersion() {
     # short option
-    ./renge -v
+    ./bin/renge -v
     assertEquals 0 $?
 
     # long option
-    ./renge --version
+    ./bin/renge --version
     assertEquals 0 $?
 }
 
 function testRengeIllegalOption() {
     # short option
-    ./renge -f
+    ./bin/renge -f
     assertEquals 255 $?
 
     # long option
-    ./renge --foobar
+    ./bin/renge --foobar
     assertEquals 255 $?
 }
 
 function testRengeTrueExit() {
-    local rtn="$(./renge)"
+    local rtn="$(./bin/renge)"
     assertNotNull "${rtn}"
     assertEquals 0 $?
 }
 
 function testRengeFalseExit() {
     # before
-    mv ./renge-quotes ./no-renge-quotes
+    mv ./share/renge/renge-quotes ./share/renge/no-renge-quotes
 
-    ./renge
+    ./bin/renge
     assertEquals 2 $?
-
-    # after
-    mv ./no-renge-quotes ./renge-quotes
 }
 
 

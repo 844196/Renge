@@ -23,6 +23,12 @@ $ sudo apt-get install renge
 
 **Thank you, [sasairc](https://github.com/sasairc)!!!!!!!!!!!!!**
 
+### Other
+```shellsession
+$ git clone https://github.com/844196/Renge Renge
+$ cd ./Renge
+$ make install
+```
 
 ## Usage
 ### Basic usage

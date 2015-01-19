@@ -17,8 +17,8 @@ set -e
 
 ## about me
 readonly ME="${0##*/}"
-readonly VERSION="0.3"
-readonly basedir="${0%/*}"
+readonly VERSION="0.4"
+readonly basedir="PREPRE"
 
 ## usage
 function usage() {
@@ -75,7 +75,7 @@ function createRandomNumber() {
 }
 
 ## check renge-quotes
-if [[ ! -e "${basedir}/renge-quotes" ]]; then
+if [[ ! -e "${basedir}/share/renge/renge-quotes" ]]; then
     error "internal error -- 'no quotes file'" "2"
 fi
 
@@ -83,7 +83,7 @@ fi
 while read line
 do
     quotes+=( "${line}" )
-done <"${basedir}/renge-quotes"
+done <"${basedir}/share/renge/renge-quotes"
 
 ## print quote
 echo "${quotes[$(createRandomNumber "${#quotes[@]}")]}"
