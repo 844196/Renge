@@ -21,8 +21,6 @@ $ sudo apt-get update
 $ sudo apt-get install renge
 ```
 
-**Thank you, [sasairc](https://github.com/sasairc)!!!!!!!!!!!!!**
-
 ### Other
 ```shellsession
 $ git clone https://github.com/844196/Renge Renge
@@ -72,6 +70,15 @@ $ renge -n 4
 $ renge -n 4
 あと、写真のかわりに絵送るん！ クレヨンもいるのんな！！
 ```
+
+
+## Thanks
+
+- [rekanan](https://soundcloud.com/rekanan) ([sudo apt-get install RENGE](https://soundcloud.com/rekanan/sudo-apt-get-install-renge))
+    - そもそも、このツールは`brew install RENGE`を行いたいが為のものでした（brewの仕様上大文字は無理でしたが）。
+    - [言及までして頂いてありがとうございます](https://twitter.com/yupixel/status/556448879537709056)
+- [sasairc](https://github.com/sasairc)
+    - aptリポジトリの提供（ほんとに`sudo apt-get install renge`が出来るようになった）や`Makefile`の作り方まで教えてもらいました。ありがとうございます。
 
 
 ## License
