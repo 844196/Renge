@@ -55,6 +55,24 @@ function testRengeTrueExit() {
     assertEquals 0 $?
 }
 
+function testRengeTrueExitSpecifyQuoteNumber() {
+    local rtn="$(./bin/renge -n 0)"
+    assertEquals "${rtn}" "CMでは見たことあるのん！"
+    assertEquals 0 $?
+
+    local rtn="$(./bin/renge --number 0)"
+    assertEquals "${rtn}" "CMでは見たことあるのん！"
+    assertEquals 0 $?
+}
+
+function testRengeFalseExitIlligaQuoteNumber() {
+    ./bin/renge -n 111111
+    assertEquals 3 $?
+
+    ./bin/renge -n ddddd
+    assertEquals 3 $?
+}
+
 function testRengeFalseExit() {
     # before
     mv ./share/renge/renge-quotes ./share/renge/no-renge-quotes
