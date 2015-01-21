@@ -115,7 +115,7 @@ fi
 
 ## decide quote number
 if [[ -n "${quote_number:-}" ]]; then
-    if [[ ! "${quote_number}" =~ ^[0-9]*$ || "${quote_number}" -gt "${#quotes[@]}" ]]; then
+    if [[ ! "${quote_number}" =~ ^[0-9]*$ || "${quote_number}" -gt "$(( ${#quotes[@]} - 1 ))" ]]; then
         error "invaild option -- 'quote_number'" "3"
     fi
 else
