@@ -73,6 +73,14 @@ function testRengeFalseExitIlligaQuoteNumber() {
     assertEquals 3 $?
 }
 
+function testRengeQuotesList() {
+    ./bin/renge -l
+    assertEquals 0 $?
+
+    local rtn="$(./bin/renge -l | head -n 1 | sed 's/^0 .*/0/g')"
+    assertEquals "${rtn}" $?
+}
+
 function testRengeFalseExit() {
     # before
     mv ./share/renge/renge-quotes ./share/renge/no-renge-quotes
