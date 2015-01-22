@@ -1,8 +1,9 @@
 # Renge
-[![](https://img.shields.io/travis/844196/Renge.svg?style=flat)](https://travis-ci.org/844196/Renge)
-[![](http://img.shields.io/github/tag/844196/Renge.svg?style=flat)](https://github.com/844196/Renge/releases)
-[![](http://img.shields.io/github/issues/844196/Renge.svg?style=flat)](https://github.com/844196/Renge/issues)
-[![](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](LICENSE)
+[![author](http://img.shields.io/badge/author-844196-blue.svg?style=flat)](https://github.com/844196)
+[![tag](http://img.shields.io/github/tag/844196/Renge.svg?style=flat)](https://github.com/844196/Renge/releases)
+[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](LICENSE)
+[![issue](http://img.shields.io/github/issues/844196/Renge.svg?style=flat)](https://github.com/844196/Renge/issues)
+[![travis-ci](https://img.shields.io/travis/844196/Renge.svg?style=flat)](https://travis-ci.org/844196/Renge)
 
 ![](http://40.media.tumblr.com/db4be5ad6b9c6b31c58ca184b08198a1/tumblr_ni8m233p921s7qf9xo1_1280.png)
 
