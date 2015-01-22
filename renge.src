@@ -85,12 +85,20 @@ done
 # fortunerenge
 ## common function
 function createRandomNumber() {
-    # shellcheck disable=SC2086
-    awk 'BEGIN{
-        srand();
-        print substr(rand(), 3) % '${1:-1}'
-    }'
-    return 0
+    if [[ -e "/dev/urandom" ]]; then
+        local var="$(
+            dd if=/dev/urandom bs=1 count=4 2>/dev/null \
+                | od -vAn -tu4 \
+                | sed 's/[^0-9]//g'
+        )"
+        echo "$(( var % ${1:-1} ))"
+    else
+        # shellcheck disable=SC2086
+        awk 'BEGIN{
+            srand();
+            print substr(rand(), 3) % '${1:-1}'
+        }'
+    fi
 }
 
 ## check renge-quotes
