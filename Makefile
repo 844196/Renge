@@ -1,9 +1,12 @@
 # Original Makefile created by sasairc (https://github.com/sasairc)
 
-TARGET	:=	renge
-ORIGIN	:=	renge.src
-PREFIX	:=	/usr/local
-RM		:=	rm
+TARGET	:= renge
+PREFIX	:= /usr/local
+BINDIR	:= $(PREFIX)/bin
+DICDIR	:= $(PREFIX)/share/renge
+ORIGIN	:= renge.src
+DICNME	:= renge-quotes
+RM		:= rm
 
 all:	${TARGET}
 
@@ -12,10 +15,10 @@ renge:
 	chmod a+x ${TARGET}
 
 install: ${TARGET}
-	mkdir -p ${PREFIX}/bin
-	mkdir -p ${PREFIX}/share/renge
-	cp -v ./renge ${PREFIX}/bin
-	cp -v ./renge-quotes ${PREFIX}/share/renge
+	install -pd $(BINDIR)
+	install -pd $(DICDIR)
+	install -pm 755 $(TARGET) $(BINDIR)/
+	install -pm 644 $(DICNME) $(DICDIR)/
 
 clean:
-	-${RM}	-fv	${TARGET}
+	-${RM} -f ${TARGET}
