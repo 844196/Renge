@@ -77,7 +77,7 @@ $ renge -n 501
 高い！？
 ```
 
-### `-f` option
+#### `-f` option
 ```shellsession
 $ renge -f saihonyaku
 見て解決する試み？
