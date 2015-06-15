@@ -77,6 +77,15 @@ $ renge -n 501
 高い！？
 ```
 
+### `-f` option
+```shellsession
+$ renge -f saihonyaku
+見て解決する試み？
+
+$ renge -f saihonyaku
+それは追従された難しい日刊紙です; アドレス .........。
+```
+
 
 ## Thanks
 
