@@ -41,7 +41,7 @@ function testRengePrintVersion() {
 
 function testRengeIllegalOption() {
     # short option
-    ./bin/renge -f
+    ./bin/renge -z
     assertEquals 255 $?
 
     # long option
@@ -79,6 +79,17 @@ function testRengeQuotesList() {
 
     local rtn="$(./bin/renge -l | head -n 1 | sed 's/^0 .*/0/g')"
     assertEquals "${rtn}" $?
+}
+
+function testRengeSpecifilesDictionary() {
+    # before
+    echo {1..100} | tr ' ' '\n' >./dummy-dictionary
+
+    ./bin/renge -f ./dummy-dictionary
+    assertEquals 0 $?
+
+    local rtn="$(./bin/renge -f ./dummy-dictionary -n 84)"
+    assertEquals "${rtn}" "85"
 }
 
 function testRengeFalseExit() {
