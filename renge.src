@@ -26,6 +26,7 @@ function usage() {
 	Usage: ${ME} [options]
 	    -l, --list                       Print all quotes list and exit.
 	    -n, --number INT                 Specify quote number.
+	    -f, --file PATH                  Specifiles the dictionary.
 	EOF
     return 0
 }
@@ -55,6 +56,13 @@ do
                 error "option requires an argument -- '${1}'" "-1"
             fi
             quote_number="${2}"
+            shift 2
+            ;;
+        '-f'|'--file' )
+            if [[ -z "${2-}" ]] || [[ "${2-}" =~ ^-+ ]]; then
+                error "option requires an argument -- '${1}'" "-1"
+            fi
+            quote_file="${2}"
             shift 2
             ;;
         '-l'|'--list' )
@@ -94,7 +102,8 @@ function createRandomNumber() {
 }
 
 ## check renge-quotes
-if [[ ! -e "${basedir}/share/renge/renge-quotes" ]]; then
+: "${quote_file:=${basedir}/share/renge/renge-quotes}"
+if [[ ! -e "${quote_file}" ]]; then
     error "internal error -- 'no quotes file'" "2"
 fi
 
@@ -102,11 +111,11 @@ fi
 while read line
 do
     quotes+=( "${line}" )
-done <"${basedir}/share/renge/renge-quotes"
+done <"${quote_file}"
 
 ## if quote_listflag is true(1), print quote list and exit
 if [[ "${quote_listflag:-0}" -eq "1" ]]; then
-    awk '{print NR-1, $0}' "${basedir}/share/renge/renge-quotes"
+    awk '{print NR-1, $0}' "${quote_file}"
     exit 0
 fi
 
