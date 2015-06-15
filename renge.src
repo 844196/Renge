@@ -23,17 +23,9 @@ readonly basedir="PREPRE"
 ## usage
 function usage() {
     cat <<-EOF 1>&2
-	Usage:
-	    ${ME} [-vhl] [-n number]
-	
-	Argument:
-	    No argument.
-	
-	Options:
-	    -v, --version   Print version and exit successfully.
-	    -h, --help      Print this help and exit successfully.
-	    -l, --list      Print all quotes list and exit successfully.
-	    -n, --number    Specify quote number.
+	Usage: ${ME} [options]
+	    -l, --list                       Print all quotes list and exit.
+	    -n, --number INT                 Specify quote number.
 	EOF
     return 0
 }
