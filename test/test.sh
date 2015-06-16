@@ -56,11 +56,11 @@ function testRengeTrueExit() {
 }
 
 function testRengeTrueExitSpecifyQuoteNumber() {
-    local rtn="$(./bin/renge -n 0)"
+    local rtn="$(./bin/renge -n 1)"
     assertEquals "${rtn}" "CMでは見たことあるのん！"
     assertEquals 0 $?
 
-    local rtn="$(./bin/renge --number 0)"
+    local rtn="$(./bin/renge --number 1)"
     assertEquals "${rtn}" "CMでは見たことあるのん！"
     assertEquals 0 $?
 }
@@ -77,7 +77,7 @@ function testRengeQuotesList() {
     ./bin/renge -l
     assertEquals 0 $?
 
-    local rtn="$(./bin/renge -l | head -n 1 | sed 's/^0 .*/0/g')"
+    local rtn="$(./bin/renge -l | head -n 1 | sed 's/^1 .*/0/g')"
     assertEquals "${rtn}" $?
 }
 
@@ -88,7 +88,7 @@ function testRengeSpecifilesDictionary() {
     ./bin/renge -f ./dummy-dictionary
     assertEquals 0 $?
 
-    local rtn="$(./bin/renge -f ./dummy-dictionary -n 84)"
+    local rtn="$(./bin/renge -f ./dummy-dictionary -n 85)"
     assertEquals "${rtn}" "85"
 }
 

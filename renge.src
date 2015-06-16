@@ -17,7 +17,7 @@ set -e
 
 ## about me
 readonly ME="${0##*/}"
-readonly VERSION="1.1"
+readonly VERSION="1.2"
 readonly basedir="PREPRE"
 
 ## usage
@@ -107,29 +107,26 @@ if [[ ! -e "${quote_file}" ]]; then
     error "internal error -- 'no quotes file'" "2"
 fi
 
-## quotes into array
-while read line
-do
-    quotes+=( "${line}" )
-done <"${quote_file}"
+## count line of quotes file
+total_lines="$(awk 'END{print NR}' ${quote_file})"
 
 ## if quote_listflag is true(1), print quote list and exit
 if [[ "${quote_listflag:-0}" -eq "1" ]]; then
-    awk '{print NR-1, $0}' "${quote_file}"
+    awk '{print NR, $0}' "${quote_file}"
     exit 0
 fi
 
 ## decide quote number
 if [[ -n "${quote_number:-}" ]]; then
-    if [[ ! "${quote_number}" =~ ^[0-9]*$ || "${quote_number}" -gt "$(( ${#quotes[@]} - 1 ))" ]]; then
+    if [[ ! "${quote_number}" =~ ^[1-9][0-9]*$ || "${quote_number}" -gt "${total_lines}" ]]; then
         error "invaild option -- 'quote_number'" "3"
     fi
 else
-    quote_number="$(createRandomNumber "${#quotes[@]}")"
+    quote_number="$((`createRandomNumber ${total_lines}` + 1))"
 fi
 
 ## print quote
-echo "${quotes["${quote_number}"]}"
+sed -n "${quote_number}p" "${quote_file}"
 
 
 # exit
