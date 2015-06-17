@@ -33,7 +33,7 @@ function usage() {
 
 ## error
 function error() {
-    echo "${ME}: ${1}"
+    echo "${ME}: ${1}" 1>&2
     exit "${2:-1}"
 }
 
@@ -48,7 +48,7 @@ do
             exit 0
             ;;
         '-v'|'--version' )
-            echo "${VERSION}"
+            echo "${VERSION}" 1>&2
             exit 0
             ;;
         '-n'|'--number' )
