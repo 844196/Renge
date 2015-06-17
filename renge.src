@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#   @(#) Print Renge Kunai quotes
+#   @(#) Print Renge Miyauchi quotes
 #
 #   Author:
 #       844196 (@84____)
@@ -17,7 +17,7 @@ set -e
 
 ## about me
 readonly ME="${0##*/}"
-readonly VERSION="1.2.1"
+readonly VERSION="1.2.2"
 readonly basedir="PREPRE"
 
 ## usage
