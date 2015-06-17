@@ -17,12 +17,12 @@ set -e
 
 ## about me
 readonly ME="${0##*/}"
-readonly VERSION="1.2"
+readonly VERSION="1.2.1"
 readonly basedir="PREPRE"
 
 ## usage
 function usage() {
-    cat <<-EOF 1>&2
+    cat <<-EOF
 	Usage: ${ME} [options]
 	    -l, --list                       Print all quotes list and exit.
 	    -n, --number INT                 Specify quote number.
@@ -48,7 +48,7 @@ do
             exit 0
             ;;
         '-v'|'--version' )
-            echo "${VERSION}" 1>&2
+            echo "${VERSION}"
             exit 0
             ;;
         '-n'|'--number' )
