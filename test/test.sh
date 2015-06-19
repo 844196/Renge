@@ -57,11 +57,9 @@ function testRengeTrueExit() {
 
 function testRengeTrueExitSpecifyQuoteNumber() {
     local rtn="$(./bin/renge -n 1)"
-    assertEquals "${rtn}" "CMでは見たことあるのん！"
     assertEquals 0 $?
 
     local rtn="$(./bin/renge --number 1)"
-    assertEquals "${rtn}" "CMでは見たことあるのん！"
     assertEquals 0 $?
 }
 
