@@ -1,7 +1,7 @@
 # Renge
 [![author](http://img.shields.io/badge/author-844196-blue.svg?style=flat)](https://github.com/844196)
-[![version](http://img.shields.io/github/tag/844196/Renge.svg?style=flat&label=version)](https://github.com/844196/Renge/releases)
-[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](LICENSE)
+[![version](http://img.shields.io/github/release/844196/Renge.svg?style=flat&label=version)](https://github.com/844196/Renge/releases)
+[![license](https://img.shields.io/github/license/844196/renge.svg?style=flat)](LICENSE)
 [![issue](http://img.shields.io/github/issues/844196/Renge.svg?style=flat)](https://github.com/844196/Renge/issues)
 [![travis-ci](https://img.shields.io/travis/844196/Renge.svg?style=flat)](https://travis-ci.org/844196/Renge)
 
