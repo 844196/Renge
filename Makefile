@@ -15,7 +15,7 @@ all: $(TARGET)
 
 renge: renge.src
 	cat $(SRCS) | sed -e 's%PREPRE%$(PREFIX)%g' > $(TARGET)
-	chmod a+x ${TARGET}
+	chmod a+x $(TARGET)
 
 install-bin: $(TARGET)
 	install -pd $(BINDIR)
@@ -25,8 +25,12 @@ install-quotes:
 	install -pd $(DICDIR)
 	install -pm 644 $(DICNME) $(DICDIR)/
 
-install: install-bin install-quotes
+install-zsh-compdef:
+	install -pd $(PREFIX)/share/renge/zsh
+	install -pm 644 _renge.zsh $(PREFIX)/share/renge/zsh/
+
+install: install-bin install-quotes install-zsh-compdef
 
 .PHONY: clean
 clean:
-	-${RM} -f ${TARGET}
+	-$(RM) -f $(TARGET)
