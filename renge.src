@@ -17,7 +17,7 @@ set -e
 
 ## about me
 readonly ME="${0##*/}"
-readonly VERSION="2.0"
+readonly VERSION="2.1"
 readonly basedir="PREPRE"
 
 ## usage
