@@ -15,10 +15,12 @@
 set -u
 set -e
 
-## about me
-readonly ME="${0##*/}"
-readonly VERSION="2.1"
+## set dir
 readonly basedir="PREPRE"
+readonly libdir="_LIBDIR"
+
+## load library
+source "${libdir}/version.bash"
 
 ## usage
 function usage() {
@@ -48,7 +50,7 @@ do
             exit 0
             ;;
         '-v'|'--version' )
-            echo "${VERSION}"
+            version
             exit 0
             ;;
         '-n'|'--number' )
