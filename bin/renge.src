@@ -22,12 +22,7 @@ readonly libdir="_LIBDIR"
 ## load library
 source "${libdir}/version.bash"
 source "${libdir}/usage.bash"
-
-## error
-function error() {
-    echo "${ME}: ${1}" 1>&2
-    exit "${2:-1}"
-}
+source "${libdir}/error.bash"
 
 
 # get and check argument, options
