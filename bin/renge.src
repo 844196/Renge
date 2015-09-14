@@ -21,17 +21,7 @@ readonly libdir="_LIBDIR"
 
 ## load library
 source "${libdir}/version.bash"
-
-## usage
-function usage() {
-    cat <<-EOF
-	Usage: ${ME} [options]
-	    -l, --list                       Print all quotes list and exit.
-	    -n, --number INT                 Specify quote number.
-	    -f, --file PATH                  Specifiles the dictionary.
-	EOF
-    return 0
-}
+source "${libdir}/usage.bash"
 
 ## error
 function error() {
