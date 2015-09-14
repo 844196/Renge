@@ -1,0 +1,60 @@
+#!/bin/bash
+#
+#   @(#) Print Renge Miyauchi quotes
+#
+#   Author:
+#       844196 (@84____)
+#
+#   License:
+#       MIT
+#
+
+
+# initialize
+## option
+set -u
+set -e
+
+## set dir
+readonly basedir="PREPRE"
+readonly libdir="_LIBDIR"
+
+## load library
+source "${libdir}/version.bash"
+source "${libdir}/usage.bash"
+source "${libdir}/error.bash"
+source "${libdir}/option_parse.bash"
+source "${libdir}/createRandomNumber.bash"
+
+
+# fortunerenge
+## check renge-quotes
+: "${quote_file:=${basedir}/share/renge/renge-quotes}"
+if [[ ! -e "${quote_file}" ]]; then
+    error "internal error -- 'no quotes file'" "2"
+fi
+
+## count line of quotes file
+total_lines="$(awk 'END{print NR}' ${quote_file})"
+
+## if quote_listflag is true(1), print quote list and exit
+if [[ "${quote_listflag:-0}" -eq "1" ]]; then
+    awk '{print NR, $0}' "${quote_file}"
+    exit 0
+fi
+
+## decide quote number
+if [[ -n "${quote_number:-}" ]]; then
+    if [[ ! "${quote_number}" =~ ^[1-9][0-9]*$ || "${quote_number}" -gt "${total_lines}" ]]; then
+        error "invaild option -- 'quote_number'" "3"
+    fi
+else
+    quote_number="$((`createRandomNumber ${total_lines}` + 1))"
+fi
+
+## print quote
+sed -n "${quote_number}p" "${quote_file}"
+
+
+# exit
+exit 0
