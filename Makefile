@@ -1,36 +1,39 @@
-# Original Makefile created by sasairc (https://github.com/sasairc)
 #
-#    Makefile for Renge
+#    Makefile for renge
 #
 
-TARGET	:= renge
-DICNME	:= renge-quotes
+TARGET	= renge
 PREFIX	:= /usr/local
 BINDIR	:= $(PREFIX)/bin
-DICDIR	:= $(PREFIX)/share/renge
+LIBDIR	:= $(PREFIX)/lib/renge
 RM	:= rm
-SRCS	= $(wildcard *.src)
+CMDLINE	:= 0
+export
 
-all: $(TARGET)
+all clean:
+	@$(MAKE) -C ./bin			$@
 
-renge: renge.src
-	cat $(SRCS) | sed -e 's%PREPRE%$(PREFIX)%g' > $(TARGET)
-	chmod a+x $(TARGET)
+install-bin:
+	@$(MAKE) -C ./bin			$@
 
-install-bin: $(TARGET)
-	install -pd $(BINDIR)
-	install -pm 755 $(TARGET) $(BINDIR)/
+install-lib:
+	@$(MAKE) -C ./lib/renge			$@
 
 install-quotes:
-	install -pd $(DICDIR)
-	install -pm 644 $(DICNME) $(DICDIR)/
+	@$(MAKE) -C ./share/renge		$@
 
 install-zsh-compdef:
-	install -pd $(PREFIX)/share/renge/zsh
-	install -pm 644 _renge.zsh $(PREFIX)/share/renge/zsh/
+	@$(MAKE) -C ./share/renge/compdef	$@
 
-install: install-bin install-quotes install-zsh-compdef
+install: install-bin		\
+	 install-lib		\
+	 install-quotes		\
+	 install-zsh-compdef	
 
-.PHONY: clean
-clean:
-	-$(RM) -f $(TARGET)
+.PHONY: all			\
+	install			\
+	install-bin		\
+	install-lib		\
+	install-quotes		\
+	install-zsh-compdef	\
+	clean
